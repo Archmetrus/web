@@ -1,1 +1,1 @@
-[internet sitesi](https://myusufyakak.vercel.app/)
+[İnternet sitesinin linki](https://myusufyakak.vercel.app/)
