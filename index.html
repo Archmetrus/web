@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Teknolojileri ve Programlama</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            margin: 10px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Web Teknolojileri ve Programlama</h1>
+    <nav>
+        <a href="" onclick="loadPage('anasayfa.html')">Ana Sayfa</a>
+        <a href="#hakkimda" onclick="loadPage('hakkimda.html')">Hakkımda</a>
+        <a href="#iletisim" onclick="loadPage('iletisim.html')">İletişim</a>
+    </nav>
+</header>
+
+<main id="content">
+    <h2>Siteme Hoş Geldiniz</h2>
+    <p>Bu site Web Teknolojileri ve Programlama dersi için geliştirilmektedir.</p>
+</main>
+
+<footer>
+    <p>Tüm hakları saklıdır &copy; 2024</p>
+</footer>
+
+<script>
+    function loadPage(page) {
+        fetch(page)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Ağ hatası');
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('content').innerHTML = data;
+            })
+            .catch(error => {
+                document.getElementById('content').innerHTML = '<h2>Sayfa yüklenemedi.</h2>';
+            });
+    }
+</script>
+
+</body>
+</html>
